@@ -1,14 +1,14 @@
 # 人脸识别离线SDK
-**Version：facelib 3.0.1.2**
+**Version：facelib 3.1.2.2**
 ---
 
 ## 接口使用示例demo
-[Demo](https://github.com/RokidGlass/RokidFaceSDK/tree/master/sample)
+https://github.com/Rokid/RokidFaceSDK/tree/master/sample
 
 ## 一. FaceSDK介绍
 
 ### 版本号说明：
-前两位3.0表示算法版本号，后两位1.2表示sdk版本号
+前两位3.1表示算法版本号，后两位2.2表示sdk版本号
 ### 1.1 概述
 RokidFaceSDK提供基础的人脸检测+人脸跟踪+人脸识别，能够高效进行多人识别。本SDK封装底层算法接口，提供：
 1.图片人脸检测+图片人脸识别<br>
@@ -16,9 +16,6 @@ RokidFaceSDK提供基础的人脸检测+人脸跟踪+人脸识别，能够高效
 3.人脸数据库增删改查的接口<br>
 4.能够获取人脸角度以及人脸质量等信息<br>
 5.单帧图片人脸检测，支持bitmap、NV21格式数据人脸检测<br>
-
-### 特别说明：
-本android sdk限制最大数据库人脸个数为10000，若有超过10000人脸数据库生成的需求，请到web端处理生成。
 
 ## 二. 集成说明
 ---
@@ -36,7 +33,7 @@ allprojects {
 在app的build.gradle中添加依赖
 ```java
 dependencies {
-    implementation 'com.rokid.glass:facelib:3.0.1.2'
+    implementation 'com.rokid.glass:facelib:3.1.2.2'
 }
 ```
 
@@ -124,13 +121,21 @@ String featId = faceDbHelper.add(bm);
 * 人脸特征搜索引擎文件会储存在/sdcard/facesdk/ 目录下；
 * 人脸特征搜索引擎文件为"SearchEngine.bin"；
 * 使用人脸识别时需将这该文件拷贝至需要的设备中;
+* 调用没有参数的接口，默认支持最大数据库人脸数为10000;
 ``` java
-void save()
+void save();
 ```
+
+```java
+//maxSize表示支持最大人脸数
+void save(int maxSize);
+```
+
 
 示例代码：
 ```java
 faceDbHelper.save();
+faceDbHelper.save(int maxSize);
 ```
 #### 3.1.4 清除人脸特征库搜索引擎
 ``` java
@@ -455,6 +460,7 @@ FaceDO {
     public boolean recogOutTime;//人脸是否超时
     public float faceScore;//该帧rect与人脸的相似度(取值0-100)，取值越高表示该帧rect是人脸的概率越高，一般该值大于75，可以认为是人脸。(请与userInfoScore区分)
     public int faceAlignTime;//该人脸做faceAlign算法的次数
+    public int faceRecogTime;//该人脸做faceRecog算法的次数
     public String featid;//搜索引擎中查询出来的唯一识别号
     public Bitmap recogBitmap;//算法用于识别的图片
 }
