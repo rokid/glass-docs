@@ -37,3 +37,4 @@ Rokid Glass文档
         - [下载地址](3-app/1-android/download.md)
     - 内嵌HTTP服务器
         - [使用说明](4-server/index.md)
+* [OS 设计规范](5-design/index.md)
