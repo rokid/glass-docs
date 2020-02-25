@@ -1,3 +1,135 @@
+# 1.3.2-20200218-150000
+#### 系统更新
+
+* 系统APP更新：
+	* RokidCameraDeploy：
+		- [feat] 升级Face SDK到3.1.2.6；
+		- [perf] 更新在线离线配置文件版本字段；
+		- [feat] 增加本地、本地无离线库、在线三个状态提示，无离线库只做检测不做识别；
+		- [fix][23511] 修复多人识别因多线程出现的数组越界；
+		- [fix] 修复在线离线配置文件解析问题；
+	* RokidActivation：
+		- [feat] 升级Face SDK到3.1.2.6，maxFace支持最大100000；
+	* RokidCamera：
+		- 解决语音操作时概率性crash的BUG；
+	* RokidSettings：
+		- [FIX] 英文下 “恢复出厂设置” button 文案翻译；
+		- [FIX][手机端][必现][系统设置]当WIFI名称过长时，显示不完整;
+		- [FIX] 扫码联网失败的问题；
+
+#### 手机APP更新 V4.2.4
+
+* [fix][23497] unbindMaster 不处理异常，修复emitter.onError(new Throwable(""));引发的异常
+* [fix][23504] 修复：添加特征，重新选择照片，扫描框中没有人脸边框显示
+* [fix][23418] 修复网络连接超时Toast提示为"网络连接异常"
+* [fix][23521] 手机端文件管理查看图片，图片支持放大、拖动
+* [fix][23523] 修复批量选择界面长按屏幕，会导致界面上方计数错误
+* [feat] 升级Face SDK至3.1.2.6
+* [doc] 修改文案“200-200像素”为“200*200像素”
+
+# 1.3.0-20200208-150000
+#### 系统更新
+
+* 修复神盾自更新完成后点击“打开”无效的问题；
+* 系统APP更新：
+	* RokidCameraDeploy：
+		- [merge] 修改特征库读取目录为/sdcard/rokid/faceRecognize/,不做跨进程查询；
+		- [fix] 对没有图片数据decodeBase64做处理和保护；
+		- [feat] 重新处理Activation广播，进行SDK reload操作，实时load人脸特征数据库；
+	* RokidActivation：
+		- [fix][23397] UDP组播带上DEVICE\_TYPE\_ID；
+	* RokidCamera：
+		- 修改模拟按键拍照的方式；保存图片成功后才允许拍下一张；
+	* RokidRemoteCooperation：
+		- [FIX] 当正在通话时，按back键返回再次进入远程协作，眼镜端可以拨打其他号码，且对方不会有铃声响起；
+
+#### 手机APP更新 V4.2.2
+
+* [perf] 批处理目录下没有图片，则不重新拉取列表和loading；
+* [perf] 删除所有人脸数据后,空数据页面不显示批量删除菜单；
+* [fix][23406] 修复文件管理详情页删除成功后，返回列表界面不会自动刷新；
+* [fix][23373] 反初始化函数不销毁sWebSocketClientEngine和responseProcessEngine对象，避免重复创建线程导致OOM；
+
+# 1.2.2-20200102-150000
+#### 系统更新
+
+* 系统APP更新：
+	* RokidCameraDeploy：
+		- [MDF] 指定SearchEngine.bin 为/sdcard/rokid/faceRecognize/SearchEngine.bin;
+	* RokidActivation：
+		- [MDF] 指定SearchEngine.bin目录为/sdcard/rokid/faceRecognize/SearchEngine.bin; 指定离线包拷贝目录为/sdcard/rokid/faceRecognize/facedb/;
+	* RokidCamera：
+		- 解决概率性crash问题；
+
+
+# 1.2.1-20191231-150000
+#### 系统更新
+
+* 提高setting的优先级，可以正确设置对焦模式，修复扫码失败的问题；
+* 修复应用第一次获取camera preview分辨率获取不到1080p的问题；
+* 系统APP更新：
+	* RokidCameraDeploy：
+		- [FEAT] 更新facelib到3.1.2.4，数据库通过contentProvider查询，指定dbPath为/storage/emulated/0/Android/data/com.rokid.camera.cameradeploy/cache；
+		- [FEAT] 支持同时识别和管理人脸特征；
+	* RokidActivation：
+		- [FEAT] 更新facelib到3.1.2.4，指定dbPath为/storage/emulated/0/Android/data/com.rokid.activation/cache；
+		- [FEAT] 新增ContentProvider人脸数据查询接口，数据库只保存一份在该应用目录下；
+		- [ADD] 增加查询是否特征库是否为空的接口；
+	* RokidLauncher：
+		- 更新电池图标级数，显示更加准确；
+
+#### 手机APP更新 V4.2.0
+
+* [FIX] 修复批处理目录存在隐藏文件导致批处理crash (detail)
+* [REMOVE] 移除一处RokidMobileSDK调用，该调用引发ChannelService ANR
+
+
+# 1.2.0-20191218-150000
+#### 系统更新
+
+* 根据设计，修改更新应用时的系统UI；
+* 升级多路Camera，支持2k预览分辨率，并调整alignment参数；
+* 根据设计，修改OTA弹窗逻辑，显示升级进度提示；
+* 增加系统最大property name长度限制(32->128);
+* 系统层通过log.tag的配置，过滤部分刷屏log打印；
+
+# 1.1.3-20191122-150000
+#### 系统更新
+
+* 默认允许安装非应用市场应用；
+* 解决偶现的摘下眼镜关机问题；
+* 蓝牙回退为sink模式；
+* 移除RADA游戏；
+* 合入创达逆光优化camera lib库；
+* 更新系统APP：
+	* RokidSettings：
+		1. [FIX]清除数据时，按power键不会撤销该操作，按音量+-键会撤销该操作但同时会调节音量；
+		2. [FIX]点击连接新网络进入二维码扫描界面，等待熄屏后按back键，提示“系统设置已停止运行” 
+		3. [ADD]增加从设置首页长按直接进入投屏
+	* RokidLauncher：
+		1. 增加用户黑名单，定义不显示系统某些应用；配置方法参考：https://rokid.github.io/glass-docs/1-system/#4
+	* 预装系统App更新图标；
+
+# 1.1.2-20191114-150000
+#### 系统更新
+
+* 录像支持大于4G的单个录像文件；
+* 默认打开时间自动校准；
+* 修改蓝牙名称为GLASS：MAC地址（大写）形式；
+* 使能两路mic；
+* 当前方案非标准版时，禁用 “power+vol加” 打开camera的功能；
+* 当WFD设备不可用时，显示“不可用”字样；
+* 更新系统APP：
+	* RokidSettings：
+		1. “设置”改为“系统设置”;
+		2. 把人脸阈值设置移动到隐藏菜单;
+		3. 去掉头控部分代码；
+		4. 增加切换方案重启的toast。
+	* RokidAiSdk：
+		1. 更新lothal 1.2.1.1版本系列so；
+   		2. 更新语音前端最新校正2/4麦配置文件。
+
+
 # 1.1.1-20191018-150000
 #### 系统更新
 
