@@ -14,14 +14,14 @@ https://rokid-ota.oss-cn-hangzhou.aliyuncs.com/toB/Rokid_Glass/standard/full_ima
 ## 二、OTA升级 
 
 ### Step 1:信息查询
-设置-->本机信息-->版本号、SN号，若版本号较低，则需要手动OTA升级	 
+设置-->本机信息-->版本号、SN号，若版本号低于<font color='red'><b>1.3.2-20200218</b></font>，则需要手动OTA升级	 
 ![](images/image001.png)	 
 
 ### Step 2:OTA升级步骤	 
 
 设置-->系统升级-->检查更新	 
 备注：	 
-1. 如未检测到新版本，需找相关人员确认在SN是否在升级列表中；	 
+1. 如未检测到新版本，<font color='red'><b>请检查系统日期，保持与当前日期一致。</b></font>
 2. 需保证充电状态或电量在 50%以上!	 
 ![](images/image002.png)	 
 
