@@ -137,7 +137,7 @@ public class LPRModel {
 public class LPRDO {
     public RectF position;//车牌在camera中的位置
     public String licensePlate;//车牌字符串
-    public float score;//车牌识别质性度
+    public float score;//车牌识别质信度
 
     public LPRDO() {
     }
