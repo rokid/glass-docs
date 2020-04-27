@@ -7,5 +7,3 @@
 [红外测温标准SG版](https://rokid-ota.oss-cn-hangzhou.aliyuncs.com/toB/Rokid_Glass/infrared/RokidGlassMobileApp-Singapore-v4.2.7-20200423-180846.apk)
 
 [眼镜系统版本1.0.0及之后请点此下载](https://rokid-ota.oss-cn-hangzhou.aliyuncs.com/toB/Rokid_Glass/app/RokidGlassMobileAppWithout.apk)
-
-[眼镜系统版本0.5.3及之前请点此下载](https://rokid-ota.oss-cn-hangzhou.aliyuncs.com/toB/Rokid_Glass/app/RokidGlassMobileApp.apk)
