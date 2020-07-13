@@ -15,8 +15,8 @@
     -   Glass风格的UI：参考UI设计规范和UI SDK。
     -   如果需要使用系统AR投屏功能, 建议使用Android Camera2.0开发应用。
 
-## 下载慧眼云镜·App 及 PC助手
-下载地址： [慧眼云镜·App 及 PC助手](3-app/1-android/download.md)   
+## 下载手机助手 和 PC助手
+下载地址： [安卓手机助手 和 PC助手](3-app/1-android/download.md)   
 如果要体验眼镜最新功能，请[升级眼镜系统到最新版本](0-faq/#二、ota升级).
 
 ## [FAQ](0-faq/index.md)
